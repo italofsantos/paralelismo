@@ -1,4 +1,4 @@
-package br.com.sippe.issuer.clearing.file.reader.job;
+package br.com.sippe.issuer.file.reader.job;
 
 import javax.sql.DataSource;
 
@@ -21,10 +21,10 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.task.TaskExecutor;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
-import br.com.sippe.issuer.clearing.file.reader.model.dto.ItemCompositeDTO;
-import br.com.sippe.issuer.clearing.file.reader.model.dto.MsgDTO;
-import br.com.sippe.issuer.clearing.file.reader.processor.Processor;
-import br.com.sippe.issuer.clearing.file.reader.reader.MsgReader;
+import br.com.sippe.issuer.file.reader.model.dto.ItemCompositeDTO;
+import br.com.sippe.issuer.file.reader.model.dto.MsgDTO;
+import br.com.sippe.issuer.file.reader.processor.Processor;
+import br.com.sippe.issuer.file.reader.reader.MsgReader;
 
 @Configuration
 @EnableBatchProcessing
