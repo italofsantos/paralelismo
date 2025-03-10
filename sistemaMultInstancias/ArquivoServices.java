@@ -1,4 +1,4 @@
-package br.com.cabal.proc;
+package br.com.proc;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
