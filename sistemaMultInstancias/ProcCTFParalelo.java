@@ -1,4 +1,4 @@
-package br.com.cabal.proc;
+package br.com.proc;
 
 import java.io.File;
 import java.io.IOException;
@@ -10,10 +10,10 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import br.com.cabal.bc.bandeiras.visa.ctf.TCS;
-import br.com.cabal.conf.ParamCabal;
-import br.com.cabal.core.Formata;
-import br.com.cabal.core.Prompt;
+import br.com.bc.bandeiras.visa.ctf.TCS;
+import br.com.conf.ParamCabal;
+import br.com.core.Formata;
+import br.com.core.Prompt;
 
 public class ProcCTFParalelo {
 	private static Integer numThreads;
@@ -24,12 +24,12 @@ public class ProcCTFParalelo {
 	private static String sid;
 	private static String driver;
 	private static String varAux;     
-	private static String m_sDirErro;            // diretÛrio de erros
-	private static String m_sDirTmp;             // diretÛrio tempor·rio
-	private static String m_sDirEntrada;         // diretÛrio com os arquivos a processar
-	private static String m_sDirProcessados;     // diretÛrio com os arquivos j· processados
-	private static String m_sDirGerados;         // diretÛrio com os arquivos gerados
-	private static String m_sExtArq;             // m·scara dos arquivos a processar
+	private static String m_sDirErro;            // diret√≥rio de erros
+	private static String m_sDirTmp;             // diret√≥rio tempor√°rio
+	private static String m_sDirEntrada;         // diret√≥rio com os arquivos a processar
+	private static String m_sDirProcessados;     // diret√≥rio com os arquivos j√° processados
+	private static String m_sDirGerados;         // diret√≥rio com os arquivos gerados
+	private static String m_sExtArq;             // m√°scara dos arquivos a processar
 	private static String m_sTipoArq; 
 	private static String m_sPrefixoCabecalho; 
 	private static String m_sPrefixoRodape; 
@@ -88,7 +88,7 @@ public class ProcCTFParalelo {
 		m_console = new Prompt();
 		if (m_console != null) {
 			m_console.escrevaln("tipo arq       : " + m_sTipoArq);
-			m_console.escrevaln("extens„o arq   : " + m_sExtArq);
+			m_console.escrevaln("extens√£o arq   : " + m_sExtArq);
 			m_console.escrevaln("DIR_RAIZ       : " + DIR_RAIZ);
 			m_console.escrevaln("dir raiz       : " + dirRaiz);
 			m_console.escrevaln("dir erro       : " + m_sDirErro);
@@ -106,14 +106,14 @@ public class ProcCTFParalelo {
 
 		if (contTotal == 0) {
 			m_console.escrevaln("============================================================");
-			m_console.escrevaln("N„o foi encontrado arquivo para processamento");
+			m_console.escrevaln("N√£o foi encontrado arquivo para processamento");
 			m_console.escrevaln("============================================================");
 			System.exit(1);
 		} else if (contErro == 0) {
 			m_console.escrevaln("Processamento de arquivos " + idInterf + " OK.");
 		} else {
-			m_console.escrevaln("Operador, ATEN«√O: alguns arquivos foram processados com erro !!!");
-			m_console.escrevaln("Obtenha autorizaÁ„o de SISTEMAS antes de executar o prÛximo processo !!!");
+			m_console.escrevaln("Operador, ATEN√á√ÉO: alguns arquivos foram processados com erro !!!");
+			m_console.escrevaln("Obtenha autoriza√ß√£o de SISTEMAS antes de executar o pr√≥ximo processo !!!");
 			System.exit(1);
 		}
 	}
@@ -122,9 +122,9 @@ public class ProcCTFParalelo {
         try {
             System.out.println("Movendo " + arquivoOrigem.getCanonicalPath() + " para " + arquivoDestino.getCanonicalPath() + " ...");
             if (!arquivoOrigem.renameTo(arquivoDestino)) {
-                System.out.println("ATEN«√O !!! N„o consegui mover o arquivo.");
+                System.out.println("ATEN√á√ÉO !!! N√£o consegui mover o arquivo.");
                 System.out.println("            Operador verificar junto ao remetente do arquivo(" + arquivoOrigem.getName() + "), pois este encontra-se com problemas.");
-                System.out.println("            O Processamento continuar· normalmente.");
+                System.out.println("            O Processamento continuar√° normalmente.");
             }
         } catch (Exception e) {
             System.out.println("Erro ao mover o arquivo: " + e.getMessage());
@@ -192,8 +192,8 @@ public class ProcCTFParalelo {
 	}
 
 	private static void processar() throws IOException, InterruptedException {
-		File fDirProcessados            = new File(m_sDirProcessados); // diretÛrio de saida dos processados ok
-		File fDirErro                   = new File(m_sDirErro);        // diretÛrio de saida dos processados com erro
+		File fDirProcessados            = new File(m_sDirProcessados); // diret√≥rio de saida dos processados ok
+		File fDirErro                   = new File(m_sDirErro);        // diret√≥rio de saida dos processados com erro
 		File fProcessado                = null;
 		Date dataHoje                   = new Date();
 		int contadorOk                  = 0;
@@ -236,13 +236,13 @@ public class ProcCTFParalelo {
 	}
 	private static void isParametroValido(String nomeParametro, String valor) {
 		if (valor == null || valor.isBlank()) {
-			throw new IllegalArgumentException("Par‚metro " + nomeParametro + " invalido.");
+			throw new IllegalArgumentException("Par√¢metro " + nomeParametro + " invalido.");
 		}
 	}
 
 	private static void isParametroValido(String nomeParametro, Integer valor) {
 		if (valor == null || valor == 0 || valor > 40) {
-			throw new IllegalArgumentException("Par‚metro " + nomeParametro + " invalido.");
+			throw new IllegalArgumentException("Par√¢metro " + nomeParametro + " invalido.");
 		}
 	}
 
