@@ -11,7 +11,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import br.com.bc.bandeiras.visa.ctf.TCS;
-import br.com.conf.ParamCabal;
+import br.com.conf.Param;
 import br.com.core.Formata;
 import br.com.core.Prompt;
 
@@ -64,7 +64,7 @@ public class ProcCTFParalelo {
 
 	private static void obterDadosDoAplicativo(String sAplicativo) throws Exception {
 		String dirRaiz = new String();
-		ParamCabal objParam = new ParamCabal(sAplicativo);
+		Param objParam = new Param(sAplicativo);
 
 		driver                    = objParam.getParam("driver");
 		sid                       = objParam.getParam("metodo"); // + base
